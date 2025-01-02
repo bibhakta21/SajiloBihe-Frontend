@@ -1,0 +1,4 @@
+Day 11: Frontend Setup & Tailwind Configuration
+1.	Set up React project and install dependencies (e.g., React Router, Axios)
+2.	Configure Tailwind CSS for the project
+3.	Create reusable components (e.g., buttons, cards)
