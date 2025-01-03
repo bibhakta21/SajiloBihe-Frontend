@@ -2,3 +2,9 @@ Day 11: Frontend Setup & Tailwind Configuration
 1.	Set up React project and install dependencies (e.g., React Router, Axios)
 2.	Configure Tailwind CSS for the project
 3.	Create reusable components (e.g., buttons, cards)
+
+
+Day 12: Authentication Pages
+1.	Design login and sign-up pages with Tailwind CSS
+2.	Integrate frontend with backend authentication APIs
+3.	Handle user state with Context API
