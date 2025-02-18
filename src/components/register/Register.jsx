@@ -9,7 +9,7 @@ const Register = () => {
     password: "",
   });
 
-  const [errors, setErrors] = useState("");
+  const [errors, setErrors] = useState(""); 
   const [success, setSuccess] = useState(""); 
   const navigate = useNavigate();
 
@@ -61,6 +61,10 @@ const Register = () => {
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-semibold text-center mb-6">Create Your Account</h2>
         <p className="text-gray-600 text-center mb-6">Enter your details to register.</p>
+
+        {/* Display error message */}
+        {errors && <p className="text-red-500 text-sm text-center mb-4">{errors}</p>}
+        {success && <p className="text-green-500 text-sm text-center mb-4">{success}</p>}
 
         <form onSubmit={handleSubmit}>
           {/* Username Input */}
