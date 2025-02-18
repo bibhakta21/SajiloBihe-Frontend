@@ -14,6 +14,13 @@ const Register = () => {
     setErrors(""); // Clear errors on input change
     setSuccess(""); // Clear success message on input change
   };
+
+  const phoneRegex = /^[0-9]{10,15}$/;
+if (!phoneRegex.test(formData.phone)) {
+  setErrors("Phone number must be between 10-15 digits.");
+  return;
+}
+
   
  
 
