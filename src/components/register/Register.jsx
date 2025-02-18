@@ -9,6 +9,12 @@ const Register = () => {
     password: "",
   });
   
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setErrors(""); // Clear errors on input change
+    setSuccess(""); // Clear success message on input change
+  };
+  
  
 
   return (
