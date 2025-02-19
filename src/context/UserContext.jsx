@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { UserContext } from "./UserContext";
+import React, { createContext, useState, useEffect } from "react";
+
+export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -19,7 +20,7 @@ export const UserProvider = ({ children }) => {
 
           if (response.ok) {
             const data = await response.json();
-            setUser(data);
+            setUser(data); // Set user state
           }
         } catch (error) {
           console.error("Failed to fetch user", error);
@@ -35,10 +36,9 @@ export const UserProvider = ({ children }) => {
     localStorage.removeItem("token");
     setUser(null);
   };
-  
 
   return (
-    <UserContext.Provider value={{ user, setUser,logout, loading }}>
+    <UserContext.Provider value={{ user, setUser, logout, loading }}>
       {children}
     </UserContext.Provider>
   );
