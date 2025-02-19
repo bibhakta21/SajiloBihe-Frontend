@@ -1,3 +1,13 @@
-import React, { createContext } from "react";
+import React, { useState } from "react";
+import { UserContext } from "./UserContext";
 
-export const UserContext = createContext();
+export const UserProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  return (
+    <UserContext.Provider value={{ user, setUser, loading }}>
+      {children}
+    </UserContext.Provider>
+  );
+};
