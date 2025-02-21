@@ -22,6 +22,14 @@ const Navbar = () => {
     }
     return true;
   };
+
+  const handleSave = async () => {
+    const response = await fetch("/api/users/me", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(editForm),
+    });
+  };
   
   
 
