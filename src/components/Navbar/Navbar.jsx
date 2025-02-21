@@ -31,6 +31,10 @@ const Navbar = () => {
     });
   };
   
+  const handleChangePassword = () => {
+    navigate("/changepass");
+  };
+  
   
 
   return (
