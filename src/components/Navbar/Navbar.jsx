@@ -45,6 +45,15 @@ const Navbar = () => {
               <Link to="/register" className="bg-blue-600 text-white px-4 py-2 rounded">Register</Link>
             </>
           )}
+
+{isDropdownOpen && (
+            <div className="absolute right-0 mt-2 w-48 bg-white shadow-md rounded">
+              <ul>
+                <li className="p-2">{user.username}</li>
+                <li className="p-2"><button onClick={handleLogout}>Logout</button></li>
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </nav>
