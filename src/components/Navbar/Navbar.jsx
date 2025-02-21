@@ -5,6 +5,12 @@ import { UserContext } from "../../context/UserContext";
 const Navbar = () => {
   const { user } = useContext(UserContext);
 
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
+  
+
   return (
     <nav className="bg-white shadow-md p-4">
       <div className="container mx-auto flex justify-between">
