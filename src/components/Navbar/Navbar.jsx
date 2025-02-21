@@ -6,10 +6,11 @@ import { MdMenu } from "react-icons/md";
 const Navbar = () => {
   const { user, logout } = useContext(UserContext);
   const [isOpen, setIsOpen] = useState(false);
-
+  const [isEditPopupOpen, setIsEditPopupOpen] = useState(false);
   const handleLogout = () => {
     logout();
   };
+  
 
   return (
     <nav className="bg-white shadow-md p-4">
@@ -54,6 +55,22 @@ const Navbar = () => {
               </ul>
             </div>
           )}
+
+<button onClick={() => setIsEditPopupOpen(true)}>Edit Profile</button>
+
+{isEditPopupOpen && (
+  <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+      <h2 className="text-xl font-semibold mb-4">Edit Profile</h2>
+      <input type="text" placeholder="Username" className="w-full px-3 py-2 border rounded mb-2" />
+      <input type="email" placeholder="Email" className="w-full px-3 py-2 border rounded mb-2" />
+      <div className="flex justify-end gap-2">
+        <button onClick={() => setIsEditPopupOpen(false)} className="bg-gray-400 px-4 py-2 rounded">Cancel</button>
+        <button className="bg-blue-600 text-white px-4 py-2 rounded">Save</button>
+      </div>
+    </div>
+  </div>
+)}
         </div>
       </div>
     </nav>
