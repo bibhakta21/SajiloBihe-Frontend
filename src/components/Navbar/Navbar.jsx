@@ -124,7 +124,7 @@ const Navbar = () => {
                   Home
                 </Link>
               </li>
-             
+              
               <li>
                 <Link to="/product" className="text-gray-600 text-sm xl:text-base py-1 px-2 xl:px-3 hover:text-blue-600 font-semibold">
                   Products
@@ -153,7 +153,14 @@ const Navbar = () => {
           {/* Profile Dropdown / Login & Register Buttons */}
        
           <div className="hidden lg:flex items-center space-x-6">
-           
+            {user && (
+              <button
+                className="relative text-gray-700 hover:text-blue-600"
+                onClick={() => navigate("/cart")}
+              >
+                <MdShoppingCart size={28} />
+              </button>
+            )}
             {user ? (
               <div className="relative inline-block">
                 <button className="flex items-center gap-2 text-gray-700 font-semibold bg-gray-200 rounded-full px-4 py-2 hover:bg-gray-300"
