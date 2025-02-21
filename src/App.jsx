@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Toaster } from "react-hot-toast";
-import { Navigate, Route, BrowserRouter as Router, Routes, useLocation } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
-
+import Footer from "./components/Footer/Footer";
 import Login from "./components/Login/Login";
 import Navbar from "./components/Navbar/Navbar";
 import Register from "./components/Register/Register";
-import { UserContext, UserProvider } from "./context/UserContext";
+
 
 const AppContent = () => {
  
@@ -20,7 +20,7 @@ const AppContent = () => {
         <Route path="/login" element={authRedirect(<Login />)} />
         <Route path="/register" element={authRedirect(<Register />)} />
       </Routes>
-    
+     <Footer />
     </main>
   );
 };
