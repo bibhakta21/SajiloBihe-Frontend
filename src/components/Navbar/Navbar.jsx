@@ -10,6 +10,19 @@ const Navbar = () => {
   const handleLogout = () => {
     logout();
   };
+
+  const validateForm = () => {
+    if (!editForm.username.trim()) {
+      setError("Username cannot be empty.");
+      return false;
+    }
+    if (!/^\S+@\S+\.\S+$/.test(editForm.email)) {
+      setError("Invalid email format.");
+      return false;
+    }
+    return true;
+  };
+  
   
 
   return (
