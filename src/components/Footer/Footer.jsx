@@ -20,6 +20,16 @@ const Footer = () => {
           </a>
         </div>
       </div>
+      <div className="mt-6 text-center">
+        <h2 className="text-xl font-bold">Important Links</h2>
+        <ul className="mt-2">
+          <li><a href="#" className="hover:text-blue-500">Home</a></li>
+          <li><a href="#" className="hover:text-blue-500">About</a></li>
+          <li><a href="#" className="hover:text-blue-500">Services</a></li>
+          <li><a href="#" className="hover:text-blue-500">Login</a></li>
+        </ul>
+      </div>
+      
     </div>
   );
 };
