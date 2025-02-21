@@ -1,54 +1,145 @@
+import React from "react";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { HiLocationMarker } from "react-icons/hi";
+
+
+const FooterBg = {
+  // backgroundImage: `url(${FooterImg})`,
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+  backgroundPosition: "bottom center",
+};
 
 const Footer = () => {
   return (
-    <div className="bg-gray-900 text-white p-6">
-      <div className="text-center">
-        <h1 className="text-2xl font-bold">Sajilo<span className="text-blue-500">Bihe</span></h1>
-        <p className="mt-2 text-sm">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </p>
-        <div className="flex justify-center gap-4 mt-4">
-          <a href="#" className="text-white hover:text-blue-500">
-            <FaFacebook size={24} />
-          </a>
-          <a href="#" className="text-white hover:text-blue-500">
-            <FaInstagram size={24} />
-          </a>
-          <a href="#" className="text-white hover:text-blue-500">
-            <FaLinkedin size={24} />
-          </a>
+    <div style={FooterBg} className="rounded-t-3xl">
+      <div className="bg-white shadow-inner">
+        <div className="container">
+          <div className="grid md:grid-cols-4 md:gap-4 py-5 border-t-2 border-gray-300/10 text-black">
+            {/* brand info section */}
+            <div className="py-8 px-4 space-y-4">
+              <div className="text-2xl flex items-center gap-2 font-bold">
+             
+                <p className="">Sajilo<span className="text-blue-600">Bihe</span></p>
+              </div>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque
+                accusamus nulla labore cumque id ipsum molestias architecto
+                voluptatum saepe ab.
+              </p>
+              <div className="flex items-center justify-start gap-5 !mt-6">
+                <a href="#" className="hover:text-secondary duration-200">
+                  <HiLocationMarker className="text-3xl" />
+                </a>
+                <a href="#" className="hover:text-secondary duration-200">
+                  <FaInstagram className="text-3xl" />
+                </a>
+                <a href="#" className="hover:text-secondary duration-200">
+                  <FaFacebook className="text-3xl" />
+                </a>
+                <a href="#" className="hover:text-secondary duration-200">
+                  <FaLinkedin className="text-3xl" />
+                </a>
+              </div>
+            </div>
+            {/* Footer Links  */}
+            <div className="grid grid-cols-2 md:grid-cols-3 md:col-span-3 md:ml-14">
+              <div className="py-8 px-4">
+                <h1 className="sm:text-xl text-xl font-bold sm:text-left text-justify mb-5">
+                  Important Links
+                </h1>
+                <ul className="flex flex-col gap-3">
+                  <li>
+                    <a href="#" className="hover:text-secondary duration-200">
+                      Home
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="hover:text-secondary duration-200">
+                      About
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="hover:text-secondary duration-200">
+                      Services
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="hover:text-secondary duration-200">
+                      Login
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div className="py-8 px-4">
+                <h1 className="sm:text-xl text-xl font-bold sm:text-left text-justify mb-5">
+                  Resources
+                </h1>
+                <ul className="flex flex-col gap-3">
+                  <li>
+                    <a href="#" className="hover:text-secondary duration-200">
+                      Home
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="hover:text-secondary duration-200">
+                      About
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="hover:text-secondary duration-200">
+                      Services
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="hover:text-secondary duration-200">
+                      Login
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div className="py-8 px-4">
+                <h1 className="sm:text-xl text-xl font-bold sm:text-left text-justify mb-5">
+                  Company Links
+                </h1>
+                <ul className="flex flex-col gap-3">
+                  <li>
+                    <a href="#" className="hover:text-secondary duration-200">
+                      Home
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="hover:text-secondary duration-200">
+                      About
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="hover:text-secondary duration-200">
+                      Services
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="hover:text-secondary duration-200">
+                      Login
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          {/* copyright section  */}
+          <div className="mt-8">
+            <div className="text-center py-6 border-t-2 border-gray-800/10">
+              <span className="text-sm text-black/60">
+                {" "}
+                @copyright 2024 SajiloBihe
+              </span>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="mt-6 text-center">
-        <h2 className="text-xl font-bold">Important Links</h2>
-        <ul className="mt-2">
-          <li><a href="#" className="hover:text-blue-500">Home</a></li>
-          <li><a href="#" className="hover:text-blue-500">About</a></li>
-          <li><a href="#" className="hover:text-blue-500">Services</a></li>
-          <li><a href="#" className="hover:text-blue-500">Login</a></li>
-        </ul>
-      </div>
-
-      <div className="mt-6 text-center">
-  <h2 className="text-xl font-bold">Resources</h2>
-  <ul className="mt-2">
-    <li><a href="#" className="hover:text-blue-500">Blog</a></li>
-    <li><a href="#" className="hover:text-blue-500">FAQs</a></li>
-    <li><a href="#" className="hover:text-blue-500">Support</a></li>
-    <li><a href="#" className="hover:text-blue-500">Contact</a></li>
-  </ul>
-</div>
-<div className="mt-6 text-center">
-  <h2 className="text-xl font-bold">Company</h2>
-  <ul className="mt-2">
-    <li><a href="#" className="hover:text-blue-500">Privacy Policy</a></li>
-    <li><a href="#" className="hover:text-blue-500">Terms of Service</a></li>
-    <li><a href="#" className="hover:text-blue-500">Careers</a></li>
-    <li><a href="#" className="hover:text-blue-500">Press</a></li>
-  </ul>
-</div>
-      
     </div>
   );
 };
+
+export default Footer;
