@@ -55,6 +55,35 @@ const Navbar = () => {
     return true;
   };
 
+  // Function to update user details
+  const handleSave = async () => {
+    if (!validateForm()) return;
+
+    try {
+      const token = localStorage.getItem("token");
+      const response = await fetch("http://localhost:3000/api/users/me", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(editForm),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error || "Failed to update profile.");
+        return;
+      }
+
+      setUser(data.user); // Update user context with new data
+      setIsEditPopupOpen(false);
+      setIsDropdownOpen(false);
+    } catch (error) {
+      setError("Something went wrong. Please try again.");
+    }
+  };
 
   // Function to scroll to a specific section
   const handleScroll = (sectionId) => {
@@ -68,7 +97,13 @@ const Navbar = () => {
     }
   };
 
- 
+  // Smooth scrolling function
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <>
