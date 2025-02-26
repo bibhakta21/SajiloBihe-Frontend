@@ -34,8 +34,10 @@ const AppContent = () => {
         {/* Public Routes */}
         <Route path="/" element={<><Hero /><NumberCounter /><About /><WhyChooseUs /><Testimonial /><Contact /></>} />
         <Route path="/stories" element={<Story />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/product" element={<Product />} />
         <Route path="/product/:id" element={<ProductDetail />} />
+
         {/* Authentication Routes (Redirect if user is logged in) */}
         <Route path="/login" element={authRedirect(<Login />)} />
         <Route path="/register" element={authRedirect(<Register />)} />
