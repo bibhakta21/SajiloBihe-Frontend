@@ -53,6 +53,10 @@ Welcome to the **SajiloBihe Event Venue Booking - Frontend**. This web applicati
 - **Secure API Requests** – All API calls are protected via secure headers.
 - **Cross-Origin Resource Sharing (CORS)** – Configured to allow only trusted requests.
 
+## 🎯 Testing
+
+- Playwright Test is used to test web components.
+
 ---
 
 ## 📸 Some Screenshots
@@ -106,8 +110,9 @@ Welcome to the **SajiloBihe Event Venue Booking - Frontend**. This web applicati
 ![Contact Requests](appscreenshots/managecontact.png)
 
 ## Contact
+
 For any questions, suggestions, or contributions, please feel free to reach out:
 
 📧 **Email**: [bibhaktalamsal8@gmail.com](mailto:bibhaktalamsal8@gmail.com)  
 📺 **YouTube**: [Watch Demo](https://www.youtube.com/watch?v=on68fdI86wM)  
-🎨 **Figma**: [View UI Design](https://www.figma.com/design/vG29hg5fuXrRVLyl0dUhUP/SajiloBihe-Web?m=auto&t=ubfUEcRt8ZE8gGZE-1)  
+🎨 **Figma**: [View UI Design](https://www.figma.com/design/vG29hg5fuXrRVLyl0dUhUP/SajiloBihe-Web?m=auto&t=ubfUEcRt8ZE8gGZE-1)
