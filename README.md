@@ -35,12 +35,10 @@ Welcome to the **SajiloBihe Event Venue Booking - Frontend**. This web applicati
 
 - **Frontend**: React.js (Vite)
 - **Styling**: Tailwind CSS
-- **State Management**: Redux Toolkit
-- **Forms & Validation**: React Hook Form, Yup
 - **Authentication**: JWT (JSON Web Token)
 - **HTTP Requests**: Axios
 - **Chart Visualization**: React Charts (Recharts)
-- **Image Handling**: Cloudinary / Local Storage
+- **Image Handling**: Local Storage
 - **Responsive Design**: Mobile-first approach with Tailwind CSS
 
 ---
@@ -49,7 +47,6 @@ Welcome to the **SajiloBihe Event Venue Booking - Frontend**. This web applicati
 
 - **JWT Authentication** – Ensures secure user and admin access.
 - **Role-Based Access Control** – Prevents unauthorized access to admin routes.
-- **Form Validation** – Uses **Yup & React Hook Form** to validate user inputs.
 - **Secure API Requests** – All API calls are protected via secure headers.
 - **Cross-Origin Resource Sharing (CORS)** – Configured to allow only trusted requests.
 
