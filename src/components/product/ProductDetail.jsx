@@ -98,7 +98,7 @@ export default function ProductDetail() {
 
         <div className="w-full lg:w-1/2">
           <h1 className="text-3xl font-bold mb-2">{venue.name}</h1>
-          <p className="text-2xl text-gray-700 mb-2">Rs {venue.price}</p>
+          <p className="text-2xl text-gray-700 mb-2">Rs {venue.price} /plate</p>
           <p className="text-secondary text-lg font-semibold">Price is negotiable, come visit us.</p>
           <p className="text-gray-600 mt-4">{venue.location}</p>
           <p className="text-gray-600 mt-4">{venue.description}</p>

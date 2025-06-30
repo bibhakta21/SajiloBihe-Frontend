@@ -1,53 +1,47 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
-const ForgotPass = () => {
-  const [email, setEmail] = useState("");
-  const [error, setError] = useState(""); // Store error message
-  const [success, setSuccess] = useState(""); // Store success message
+const NewPass = () => {
+  const { token } = useParams(); // Get token from URL
+  const [newPassword, setNewPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(""); // Reset errors
-    setSuccess("");
-
     try {
-      const response = await axios.post("http://localhost:3000/api/users/forgot-password", { email });
-
-      setSuccess("Check your Gmail. Reset link has been sent!");
-      setEmail(""); // Clear email field after success
+      const response = await axios.post("http://localhost:3000/api/users/reset-password", { token, newPassword });
+      toast.success(response.data.message);
+      navigate("/login"); // Redirect to login after reset
     } catch (error) {
-      setError(error.response?.data?.error || "Failed to send reset link");
+      toast.error(error.response?.data?.error || "Failed to reset password");
     }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 py-10 px-4">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-semibold text-center mb-6">Forgot Password</h2>
-
-        {/* Display error message */}
-        {error && <p className="text-red-500 text-sm text-center mb-4">{error}</p>}
-        {/* Display success message */}
-        {success && <p className="text-green-500 text-sm text-center mb-4">{success}</p>}
+        <h2 className="text-2xl font-semibold text-center mb-6">Reset Password</h2>
 
         <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-semibold mb-2">Email Address *</label>
+          <div className="mb-6">
+            <label className="block text-gray-700 text-sm font-semibold mb-2">New Password *</label>
             <input
-              type="email"
+              type="password"
               className="w-full px-4 py-2 border rounded-lg"
               required
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter new password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
             />
           </div>
+
           <button
             type="submit"
             className="w-full bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
           >
-            Send Reset Link
+            Reset Password
           </button>
         </form>
       </div>
@@ -55,4 +49,4 @@ const ForgotPass = () => {
   );
 };
 
-export default ForgotPass;
+export default NewPass;

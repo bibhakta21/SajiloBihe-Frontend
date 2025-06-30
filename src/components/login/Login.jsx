@@ -1,18 +1,20 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { UserContext } from "../../context/UserContext"; 
+import { UserContext } from "../../context/UserContext";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import icons
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(""); 
-  const [success, setSuccess] = useState(""); 
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-  const { setUser } = useContext(UserContext); 
+  const { setUser } = useContext(UserContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setError(""); 
+    setError("");
     setSuccess("");
 
     try {
@@ -31,7 +33,6 @@ const Login = () => {
 
       localStorage.setItem("token", data.token);
 
-      // Fetch user data after login
       const userResponse = await fetch("http://localhost:3000/api/users/me", {
         method: "GET",
         headers: {
@@ -41,11 +42,10 @@ const Login = () => {
 
       if (userResponse.ok) {
         const userData = await userResponse.json();
-        setUser(userData); // Update UserContext with the logged-in user
+        setUser(userData);
       }
 
       setSuccess("Login successful! Redirecting...");
-      
       setTimeout(() => navigate("/"), 2000);
     } catch (error) {
       setError("Something went wrong. Please try again.");
@@ -55,10 +55,9 @@ const Login = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 py-10 px-4">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-semibold text-center mb-6">Login to Your Account</h2>
+        <h2 className="text-2xl font-semibold text-center mb-6">Login  Your Account</h2>
         <p className="text-gray-600 text-center mb-6">Enter your details to login.</p>
 
-        {/* Error message */}
         {error && <p className="text-red-500 text-sm text-center mb-4">{error}</p>}
         {success && <p className="text-green-500 text-sm text-center mb-4">{success}</p>}
 
@@ -75,16 +74,25 @@ const Login = () => {
             />
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 relative">
             <label className="block text-gray-700 text-sm font-semibold mb-2">Password *</label>
-            <input
-              type="password"
-              className="w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500 focus:outline-none"
-              required
-              placeholder="••••••••"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                className="w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500 focus:outline-none pr-10"
+                required
+                placeholder="••••••••"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <button
+                type="button"
+                className="absolute inset-y-0 right-3 flex items-center text-gray-500 hover:text-gray-700"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <FaEyeSlash className="w-5 h-5" /> : <FaEye className="w-5 h-5" />}
+              </button>
+            </div>
           </div>
 
           <div className="flex justify-end mb-6">

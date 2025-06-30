@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -124,7 +124,7 @@ const Users = () => {
     <div className="bg-white p-6 rounded-lg shadow overflow-x-auto">
       <h2 className="text-lg font-semibold mb-4">Manage Users</h2>
 
-      <button className="bg-blue-500 text-white px-4 py-2 rounded mb-4" onClick={() => setIsModalOpen(true)}>
+      <button className="bg-green-500 text-white px-4 py-2 rounded mb-4" onClick={() => setIsModalOpen(true)}>
         + Add User
       </button>
 

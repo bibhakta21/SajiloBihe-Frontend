@@ -28,7 +28,7 @@ const Dashboard = () => {
   // Sidebar menu items
   const menuItems = [
     { id: 'dashboard', label: 'Dashboard', icon: <FaHouse /> },
-    { id: 'products', label: 'Products', icon: <FaBox /> },
+    { id: 'products', label: 'Venues', icon: <FaBox /> },
     { id: 'orders', label: 'Orders', icon: <FaCartShopping /> },
     { id: 'users', label: 'Users', icon: <FaUserPlus /> },
     { id: 'contacts', label: 'Contacts', icon: <FaPhone /> },

@@ -234,7 +234,12 @@ const Products = () => {
           <td className="border px-4 py-2">
             {venue.available ? "Available" : "Booked"}
           </td>
-          <td className="border px-4 py-2">{venue.description}</td>
+                <td className="border px-4 py-2">
+        {venue.description.split(" ").length > 4
+          ? venue.description.split(" ").slice(0, 4).join(" ") + "..."
+          : venue.description}
+      </td>
+
           <td className="border px-4 py-2 whitespace-nowrap text-center">
             <button
               onClick={() => openModal(venue)}

@@ -3,9 +3,10 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Contacts = () => {
-  const [contacts, setContacts] = useState([]); // Ensure contacts is always an array
+  const [contacts, setContacts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [deleteContactId, setDeleteContactId] = useState(null); // State for delete confirmation modal
 
   const token = localStorage.getItem("token");
 
@@ -21,7 +22,6 @@ const Contacts = () => {
 
         const data = await response.json();
 
-        // Check if response is an array
         if (Array.isArray(data)) {
           setContacts(data);
         } else {
@@ -38,12 +38,9 @@ const Contacts = () => {
   }, [token]);
 
   // ✅ Handle deleting a contact
-  const handleDeleteContact = async (id) => {
-    const confirmDelete = window.confirm("Are you sure you want to delete this contact?");
-    if (!confirmDelete) return;
-
+  const handleDeleteContact = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/contact/${id}`, {
+      const response = await fetch(`http://localhost:3000/api/contact/${deleteContactId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -51,7 +48,7 @@ const Contacts = () => {
       });
 
       if (response.ok) {
-        setContacts((prevContacts) => prevContacts.filter((contact) => contact._id !== id));
+        setContacts((prevContacts) => prevContacts.filter((contact) => contact._id !== deleteContactId));
         toast.success("Contact deleted successfully", { position: "top-right" });
       } else {
         const errorData = await response.json();
@@ -60,6 +57,8 @@ const Contacts = () => {
     } catch (err) {
       console.error("Error:", err);
       toast.error("Something went wrong. Please try again.");
+    } finally {
+      setDeleteContactId(null); // Close modal after delete operation
     }
   };
 
@@ -92,7 +91,7 @@ const Contacts = () => {
                   <td className="border px-4 py-2">{contact.message}</td>
                   <td className="border px-4 py-2">
                     <button
-                      onClick={() => handleDeleteContact(contact._id)}
+                      onClick={() => setDeleteContactId(contact._id)}
                       className="bg-red-500 text-white px-2 py-1 rounded"
                     >
                       Delete
@@ -110,6 +109,29 @@ const Contacts = () => {
           </tbody>
         </table>
       </div>
+
+      {/* Delete Confirmation Modal */}
+      {deleteContactId && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-6 rounded-lg w-96">
+            <h3 className="text-lg font-semibold mb-4">Are you sure you want to delete this contact?</h3>
+            <div className="flex justify-between">
+              <button
+                onClick={() => setDeleteContactId(null)}
+                className="bg-gray-500 text-white px-4 py-1 rounded"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleDeleteContact}
+                className="bg-red-500 text-white px-4 py-1 rounded"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

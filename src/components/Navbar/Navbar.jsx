@@ -204,15 +204,21 @@ const Navbar = () => {
                       </li>
                       <hr />
                       <li>
-                        <button
-                          className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
-                          onClick={() => {
-                            setIsEditPopupOpen(true);
-                            setIsDropdownOpen(false);
-                          }}
-                        >
-                          Edit Profile
-                        </button>
+                      <button
+  className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
+  onClick={() => {
+    setEditForm({
+      username: user?.username || "",
+      email: user?.email || "",
+      phone: user?.phone || "",
+    }); // Update the form with user data
+    setIsEditPopupOpen(true);
+    setIsDropdownOpen(false);
+  }}
+>
+  Edit Profile
+</button>
+
                       </li>
                       <li>
                         <button

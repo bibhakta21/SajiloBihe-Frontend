@@ -23,9 +23,8 @@ const Footer = () => {
                 <p className="">Sajilo<span className="text-blue-600">Bihe</span></p>
               </div>
               <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque
-                accusamus nulla labore cumque id ipsum molestias architecto
-                voluptatum saepe ab.
+              SajiloBihe is the best event venue booking website in nepal. 
+              Its most popular event venue booking in nepal.
               </p>
               <div className="flex items-center justify-start gap-5 !mt-6">
                 <a href="#" className="hover:text-secondary duration-200">
@@ -61,12 +60,12 @@ const Footer = () => {
                   </li>
                   <li>
                     <a href="#" className="hover:text-secondary duration-200">
-                      Services
+                      Contact
                     </a>
                   </li>
                   <li>
                     <a href="#" className="hover:text-secondary duration-200">
-                      Login
+                      Stories
                     </a>
                   </li>
                 </ul>
@@ -78,22 +77,22 @@ const Footer = () => {
                 <ul className="flex flex-col gap-3">
                   <li>
                     <a href="#" className="hover:text-secondary duration-200">
-                      Home
+                      Products
                     </a>
                   </li>
                   <li>
                     <a href="#" className="hover:text-secondary duration-200">
-                      About
+                      Orders
                     </a>
                   </li>
                   <li>
                     <a href="#" className="hover:text-secondary duration-200">
-                      Services
+                      Profile
                     </a>
                   </li>
                   <li>
                     <a href="#" className="hover:text-secondary duration-200">
-                      Login
+                      Send Message
                     </a>
                   </li>
                 </ul>
@@ -105,12 +104,12 @@ const Footer = () => {
                 <ul className="flex flex-col gap-3">
                   <li>
                     <a href="#" className="hover:text-secondary duration-200">
-                      Home
+                      Legal
                     </a>
                   </li>
                   <li>
                     <a href="#" className="hover:text-secondary duration-200">
-                      About
+                      History
                     </a>
                   </li>
                   <li>
@@ -120,7 +119,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <a href="#" className="hover:text-secondary duration-200">
-                      Login
+                      About Company
                     </a>
                   </li>
                 </ul>

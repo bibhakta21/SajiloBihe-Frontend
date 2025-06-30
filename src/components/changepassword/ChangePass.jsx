@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../context/UserContext"; // Import UserContext
+import { toast } from "react-hot-toast";
 
 const ChangePass = () => {
   const [formData, setFormData] = useState({
@@ -7,25 +10,23 @@ const ChangePass = () => {
     newPassword: "",
   });
 
-  const [error, setError] = useState(""); // Store error message
-  const [success, setSuccess] = useState(""); // Store success message
+  const [error, setError] = useState("");
+  const { logout } = useContext(UserContext); // Use logout function from context
+  const navigate = useNavigate();
 
-  // Handle input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setError(""); // Clear error when user types
-    setSuccess("");
+    setError("");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-    setSuccess("");
 
     try {
-      const token = localStorage.getItem("token"); // Get user token
+      const token = localStorage.getItem("token");
 
-      const response = await axios.put(
+      await axios.put(
         "http://localhost:3000/api/users/change-password",
         formData,
         {
@@ -33,8 +34,15 @@ const ChangePass = () => {
         }
       );
 
-      setSuccess("Password changed successfully! Please log in again.");
-      setFormData({ oldPassword: "", newPassword: "" }); // Clear fields
+      toast.success("Password changed successfully! Logging out...");
+      setFormData({ oldPassword: "", newPassword: "" });
+
+      // Logout the user and redirect to login
+      setTimeout(() => {
+        logout(); 
+        navigate("/login");
+      }, 2000);
+
     } catch (error) {
       setError(error.response?.data?.error || "Failed to change password");
     }
@@ -45,10 +53,7 @@ const ChangePass = () => {
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-semibold text-center mb-6">Change Password</h2>
 
-        {/* Display error message */}
         {error && <p className="text-red-500 text-sm text-center mb-4">{error}</p>}
-        {/* Display success message */}
-        {success && <p className="text-green-500 text-sm text-center mb-4">{success}</p>}
 
         <form onSubmit={handleSubmit}>
           <div className="mb-4">

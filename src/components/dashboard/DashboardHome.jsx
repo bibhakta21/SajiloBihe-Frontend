@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Bar, Line, Doughnut, Pie } from "react-chartjs-2";
-import { FaBox, FaCartShopping, FaSackDollar, FaUserPlus } from "react-icons/fa6";
 import axios from "axios";
 import {
+    ArcElement,
     BarElement,
     CategoryScale,
     Chart as ChartJS,
@@ -11,9 +9,11 @@ import {
     LineElement,
     PointElement,
     Title,
-    Tooltip,
-    ArcElement
+    Tooltip
 } from 'chart.js';
+import React, { useEffect, useState } from "react";
+import { Bar, Doughnut, Line, Pie } from "react-chartjs-2";
+import { FaBox, FaCartShopping, FaSackDollar, FaUser } from "react-icons/fa6";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, PointElement, LineElement, ArcElement, Title, Tooltip, Legend);
 
@@ -57,7 +57,7 @@ const DashboardHome = () => {
         { id: 1, value: dashboardData?.totalSales || 0, label: "Total Sales", bgColor: "bg-red-100", icon: <FaSackDollar />, iconBgColor: "bg-red-500" },
         { id: 2, value: dashboardData?.totalOrders || 0, label: "Total Orders", bgColor: "bg-yellow-100", icon: <FaCartShopping />, iconBgColor: "bg-yellow-500" },
         { id: 3, value: dashboardData?.totalVenues || 0, label: "Total Venues", bgColor: "bg-green-100", icon: <FaBox />, iconBgColor: "bg-green-500" },
-        { id: 4, value: dashboardData?.totalCustomers || 0, label: "Total Customers", bgColor: "bg-purple-100", iconBgColor: "bg-purple-500" },
+        { id: 4, value: dashboardData?.totalCustomers || 0, label: "Total Customers", bgColor: "bg-purple-100", icon: <FaUser />, iconBgColor: "bg-purple-500" },
     ];
 
     return (

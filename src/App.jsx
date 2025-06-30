@@ -11,18 +11,18 @@ import Dashboard from "./components/dashboard/dashboard";
 import Footer from "./components/Footer/Footer";
 import About from "./components/Hero/About";
 import Hero from "./components/Hero/Hero";
-import Login from "./components/Login/Login";
+import Login from "./components/login/Login";
 import Navbar from "./components/Navbar/Navbar";
 import NumberCounter from "./components/NumberCounter/NumberCounter";
 import ProductDetail from "./components/product/ProductDetail";
 import Product from "./components/product/Products";
-import Register from "./components/Register/Register";
 import Story from "./components/Stories/Story";
 import Testimonial from "./components/Testimonial/Testimonial";
 import WhyChooseUs from "./components/WhyChooseUs/WhyChooseUs";
 import { UserContext, UserProvider } from "./context/UserContext";
 import AccessDenied from "./protected/AccessDenied";
 import ProtectedRoute from "./protected/ProtectedRoute";
+import Register from "./components/register/Register";
 
 const AppContent = () => {
   const { user } = useContext(UserContext);

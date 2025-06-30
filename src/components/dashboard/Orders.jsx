@@ -88,7 +88,7 @@ function Orders() {
         <CardHeader floated={false} shadow={false} className="rounded-none flex flex-wrap gap-4 justify-between mb-4">
           <div>
             <Typography variant="h6" color="blue-gray">
-              Venue Bookings (Admin)
+              Venue Bookings
             </Typography>
             <Typography variant="small" className="text-gray-600 font-normal mt-1">
               Manage all venue bookings.
